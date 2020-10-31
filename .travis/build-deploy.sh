@@ -160,7 +160,7 @@ else
     fi
 fi
 
-DOCKER_BASE="tdeutsch/openshift-cli"
+DOCKER_BASE=${DOCKER_USER}/$(echo ${TRAVIS_REPO_SLUG} | cut -d'/' -f2 | cut -d'-' -f2-)
 OCCURVERSION=$(curl -s https://mirror.openshift.com/pub/openshift-v4/clients/oc/ | grep ".git." | tail -1 | sed -n 's/.*href="\([^"]*\).*/\1/p' | sed 's/\///g')
 
 
