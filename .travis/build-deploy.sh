@@ -127,7 +127,7 @@ function multi_arch_docker::main() {
   # Set docker platforms for which to build.
   export DOCKER_PLATFORMS='linux/amd64'
   DOCKER_PLATFORMS+=' linux/arm64'
-  DOCKER_PLATFORMS+=' linux/ppc64le,'
+  DOCKER_PLATFORMS+=' linux/ppc64le'
   DOCKER_PLATFORMS+=' linux/s390x'
 
   multi_arch_docker::install_docker_buildx
