@@ -1,1 +1,1 @@
-# docker-openshiftclient
+# docker-openshift-cli
