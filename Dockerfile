@@ -14,7 +14,7 @@ RUN if [ "${TARGETARCH}" == "arm64" ]; then export URL=https://mirror.openshift.
 RUN tar -xzf oc.tar.gz
 
 FROM alpine:3.12
-COPY --from=builder /workspace/oc /app/oc
 # hadolint ignore=DL3018
-RUN apk --no-cache add curl ca-certificates gettext gpgme; chmod +x /app/oc
+RUN apk --no-cache add curl ca-certificates gettext gpgme libc6-compat
+COPY --from=builder /workspace/oc /app/oc
 CMD ["/app/oc"]
