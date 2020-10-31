@@ -15,6 +15,6 @@ RUN tar -xzf oc.tar.gz
 
 FROM alpine:3.12
 # hadolint ignore=DL3018
-RUN apk --no-cache add curl ca-certificates gettext gpgme
 COPY --from=builder /workspace/oc /app/oc
+RUN apk --no-cache add curl ca-certificates gettext gpgme; chmod +x /app/oc
 CMD ["/app/oc"]
