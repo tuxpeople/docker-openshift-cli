@@ -1,17 +1,10 @@
 FROM alpine:3.13.2 AS builder
 ARG OCCURVERSION
-ARG TARGETARCH
-ARG URL
 LABEL stage=builder
 WORKDIR /workspace
-RUN echo TARGETARCH is ${TARGETARCH}
 # hadolint ignore=SC2039
-RUN if [ "${TARGETARCH}" == "arm64" ]; then export URL=https://mirror.openshift.com/pub/openshift-v4/clients/oc/${OCCURVERSION}/linux-aarch64/oc.tar.gz ; fi; \
-  if [ "${TARGETARCH}" == "amd64" ]; then export URL=https://mirror.openshift.com/pub/openshift-v4/clients/oc/${OCCURVERSION}/linux/oc.tar.gz ; fi; \
-  if [ "${TARGETARCH}" == "ppc64le" ]; then export URL=https://mirror.openshift.com/pub/openshift-v4/clients/oc/${OCCURVERSION}/linux-ppc64le/oc.tar.gz ; fi; \
-  if [ "${TARGETARCH}" == "s390x" ]; then export URL=https://mirror.openshift.com/pub/openshift-v4/clients/oc/${OCCURVERSION}/linux-s390x/oc.tar.gz ; fi; \
-  wget ${URL}
-RUN tar -xzf oc.tar.gz
+RUN wget https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/stable/openshift-client-linux-${OCCURVERSION}.tar.gz \
+  tar -xzf openshift-client-linux-${OCCURVERSION}.tar.gz
 
 FROM alpine:3.13.2
 # hadolint ignore=DL3018
