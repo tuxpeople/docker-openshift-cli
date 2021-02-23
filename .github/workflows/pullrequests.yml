@@ -15,7 +15,7 @@ jobs:
         name: Generate Build-Args
         id: build-args
         run: |
-          # echo ::set-output name=build-arg1::"buildarg1"
+          echo ::set-output name=build-arg1::"OCCURVERSION=$(curl -s https://mirror.openshift.com/pub/openshift-v4/clients/oc/ | grep ".git." | tail -1 | sed -n 's/.*href="\([^"]*\).*/\1/p' | sed 's/\///g')"
           # echo ::set-output name=build-arg2::"buildarg2"
       -
         name: Hadolint
