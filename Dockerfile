@@ -4,7 +4,7 @@ LABEL stage=builder
 WORKDIR /workspace
 # hadolint ignore=SC2039
 RUN wget https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/stable/openshift-client-linux-${OCCURVERSION}.tar.gz \
-  tar -xzf openshift-client-linux-${OCCURVERSION}.tar.gz
+  && tar -xzf openshift-client-linux-${OCCURVERSION}.tar.gz
 
 FROM alpine:3.13.2
 # hadolint ignore=DL3018
