@@ -1,4 +1,4 @@
-FROM alpine:3.13.3 AS builder
+FROM alpine:3.13.4 AS builder
 ARG OCCURVERSION
 LABEL stage=builder
 WORKDIR /workspace
@@ -6,7 +6,7 @@ WORKDIR /workspace
 RUN wget https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/stable/openshift-client-linux-${OCCURVERSION}.tar.gz \
   && tar -xzf openshift-client-linux-${OCCURVERSION}.tar.gz
 
-FROM alpine:3.13.3
+FROM alpine:3.13.4
 # hadolint ignore=DL3018
 RUN apk --no-cache add curl ca-certificates gettext gpgme libc6-compat
 COPY --from=builder /workspace/oc /app/oc
