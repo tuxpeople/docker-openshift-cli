@@ -1,3 +1,8 @@
+ARCHIVED
+
+If you are using OpenShift, use `registry.redhat.io/openshift4/ose-cli` 
+
+
 # openshift-cli
 ![Github Workflow Badge](https://github.com/tuxpeople/docker-openshift-cli/actions/workflows/release.yml/badge.svg)
 ![Github Last Commit Badge](https://img.shields.io/github/last-commit/tuxpeople/docker-openshift-cli)
